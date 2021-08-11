@@ -31,7 +31,7 @@ const AbstractTextInput = ({ statevalue, setStateFunc,txtInpuIcon,txtInpuType, t
 
         <React.Fragment>
 
-            {txtInpuType == "Text_Only" ?
+{txtInpuType == "Text_Only" ?
 
                 <View style={{ backgroundColor: textInputBackgroundColor, width: textInputWidth, height: textInputHeight, borderRadius: textInputBorderradius }}>
                     <TextInput
@@ -48,18 +48,18 @@ const AbstractTextInput = ({ statevalue, setStateFunc,txtInpuIcon,txtInpuType, t
                     />
                 </View>
 
-                : txtInpuType == "Text_and_Icon" ?
+: txtInpuType == "Text_and_Icon" ?
 
 
 
-                    <View style={{ backgroundColor: textInputBackgroundColor, width: textInputWidth, height: textInputHeight, flexDirection: "row", borderRadius: textInputBorderradius }}>
-                        <View style={{ width: "15%", height: "100%", justifyContent: "center", alignItems: "center" }}>
+                <View style={{ backgroundColor: textInputBackgroundColor, width: textInputWidth, height: textInputHeight, flexDirection: "row", borderRadius: textInputBorderradius }}>
+                    <View style={{ width: "15%", height: "100%", justifyContent: "center", alignItems: "center" }}>
 
                         {textInputIcon? txtInpuIcon() : <Text>Add Icon</Text>} 
 
-                        </View>
+                    </View>
 
-                        <View style={{ width: "85%", height: "100%", borderTopRightRadius: textInputBorderradius, borderBottomRightRadius: textInputBorderradius }}>
+                    <View style={{ width: "85%", height: "100%", borderTopRightRadius: textInputBorderradius, borderBottomRightRadius: textInputBorderradius }}>
 
                             <TextInput
                                 placeholder={textInputPlaceholderText}
@@ -74,16 +74,16 @@ const AbstractTextInput = ({ statevalue, setStateFunc,txtInpuIcon,txtInpuType, t
                                 onChangeText={textInputSetter}
                             />
 
-                        </View>
-
                     </View>
+
+                </View>
                     
                     
                     
-                    : txtInpuType == "Password_TextInput" ?
+: txtInpuType == "Password_TextInput" ?
 
 
-                    <View style={{ width: textInputWidth, height: textInputHeight, flexDirection: "row", backgroundColor: textInputBackgroundColor,borderRadius:textInputBorderradius }}>
+                <View style={{ width: textInputWidth, height: textInputHeight, flexDirection: "row", backgroundColor: textInputBackgroundColor,borderRadius:textInputBorderradius }}>
                     <View style={{ height: "100%", width: "80%" }}>
 
 
@@ -119,57 +119,57 @@ const AbstractTextInput = ({ statevalue, setStateFunc,txtInpuIcon,txtInpuType, t
 
                     </TouchableOpacity>
 
-                      </View>
+                </View>
 
 
 
 : txtInpuType == "Password_TextInput_and_Icon" ?
                       
 
-<View style={{ width: textInputWidth, height: textInputHeight, flexDirection: "row", backgroundColor: textInputBackgroundColor,borderRadius: textInputBorderradius}}>
-    <View style={{width:"15%",height:"100%",justifyContent:"center",alignItems:"center"}}>
+                 <View style={{ width: textInputWidth, height: textInputHeight, flexDirection: "row", backgroundColor: textInputBackgroundColor,borderRadius: textInputBorderradius}}>
+                    <View style={{width:"15%",height:"100%",justifyContent:"center",alignItems:"center"}}>
 
-    {textInputIcon? txtInpuIcon() : <Text>Add Icon</Text>} 
+                       {textInputIcon? txtInpuIcon() : <Text>Add Icon</Text>} 
 
-    </View>
-    <View style={{ height: "100%", width: "65%" }}>
-
-
-        <TextInput
-            placeholder="Password"
-            placeholderTextColor={textInputPlaceholderTextColor}
-            secureTextEntry={hidePass ? true : false}
-            style={{
-                height: "100%",
-                width: "100%",
-                padding: 0,
-                paddingLeft: 10,
-                borderRadius: textInputBorderradius,
-                color: textInputTextColor
-            }}
-            value={textInputValue}
-            onChangeText={textInputSetter}
-        />
+                </View>
+                <View style={{ height: "100%", width: "65%" }}>
 
 
-    </View>
+             <TextInput
+                 placeholder="Password"
+                 placeholderTextColor={textInputPlaceholderTextColor}
+                 secureTextEntry={hidePass ? true : false}
+                   style={{
+                   height: "100%",
+                   width: "100%",
+                   padding: 0,
+                   paddingLeft: 10,
+                   borderRadius: textInputBorderradius,
+                   color: textInputTextColor
+                    }}
+                  value={textInputValue}
+                  onChangeText={textInputSetter}
+                       />
 
-    <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() => setHidePass(!hidePass)}
-        style={{ height: "100%", width: "20%", justifyContent: "center", alignItems: "center" }}>
 
-        <Ionicons
+                  </View>
+
+           <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => setHidePass(!hidePass)}
+                style={{ height: "100%", width: "20%", justifyContent: "center", alignItems: "center" }}>
+
+               <Ionicons
             name={hidePass ? 'eye-off' : 'eye'}
             color={textInputIconColorEye}
             size={22}
-        />
+                    />
 
-    </TouchableOpacity>
-    </View>
+                 </TouchableOpacity>
+                  </View>
    
                     
-                    : null}
+ : null}
 
 
 
