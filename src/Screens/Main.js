@@ -1,35 +1,30 @@
 import React, { useState } from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { InstagramButtonCompo, NormalButton, TextInputCompo, PasswordTextInputCompo, ButtonWithImageCompo } from "../Components/AbstractComponents"
-
+import {  AbstractButton, AbstractTextInput,  } from "../Components/AbstractComponents"
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Main = () => {
 
     const [input, setInput] = useState("")
-    const image1 = "https://m.media-amazon.com/images/M/MV5BZTg0NjE0NTQtZTBlYS00OGI4LWE1NTgtYTY4ZmRlZThkYjEzXkEyXkFqcGdeQXVyNjUxODQxNzQ@._V1_FMjpg_UX1000_.jpg"
+
+    const imgUr = "data:image/jpeg;base64,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"
+  
+    const IconCompo = ({name,size,color}) => {
+        return (
+            <Ionicons name={name} size={size} color={color}  />
+        )
+    }
 
     return (
         <View style={styles.container}>
 
-
-            <PasswordTextInputCompo
-                psdtxtInpuStyle={"Text_and_Icon"}
-                psdtxtInBackgroundColor={"red"}
-                psdtxtInHeight={50}
-                psdtxtInWidth={"80%"}
-                psdtxtInBorderRadius={0}
-                psdtxtInTextColor={"black"}
-                psdtxtInPlaceHolderTextcolor={"black"}
-                psdtxtInIconColor={"yellow"}
+<AbstractTextInput
+                txtInpuType="Password_TextInput_and_Icon"
                 statevalue={input}
                 setStateFunc={(txt) => setInput(txt)}
-                iconSize={25}
-                iconLibraryName={"Ionicons"}
-                iconName={"call"}
-                iconColor={"black"}
+                txtInpuIcon={()=> <IconCompo name={"call"} size={25} color={"white"} />}
+
             />
-
-
 
 
         </View>

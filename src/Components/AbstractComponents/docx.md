@@ -1,13 +1,16 @@
-1. Normal Button
+1. Abstract Button
 
 Props:
 
 => button Style: 
-btnStyle  "string"
+btntype  "string"
 1. Text_Only
 2. Icon_Only
-3. Text_and_Icon
-btnStyle="Text_Only"
+3. Text_and_Icon_Horizontal
+4. Text_and_Icon_‎Verticle
+5. Image_Only
+6. Processing
+btntype="Text_Only"
 
 
 => button BackgroundColor: 
@@ -51,36 +54,34 @@ btnborderColor="red"
 btnOpacity 0 to 1  
 btnOpacity={0.8}
 
+=> Image Url:
+imageUrl={image1} 
 
-=> Icon Color:
-iconColor "string"
-iconColor="red"
+=> Image Height :
+imgContainerHeight={"70%"}
 
-=> Icon Name:
-iconName "string"
-iconName="name of Icon with respect to library"
+=> Image Width :
+imgContainerWidth={"70%"}
 
-=> Icon Size:
-iconSize "number"
-iconSize={10}
-
-=> Icons Supported Libraries
-Entypo
-FontAwesome
-MaterialCommunityIcons
-MaterialIcons
-Ionicons
-iconLibraryName "string"
-iconLibraryName="Entypo"
 
 functionality:
-BtnPress "call-back funcition"
+BtnPress "anonymus funcition"
 BtnPress={()=>console.log("hamza")}
 
 
-example: Normal Btn Compo
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-  <NormalButton
+
+ const IconCompo = ({name,size,color}) => {
+        return (
+            <Ionicons name={name} size={size} color={color}  />
+        )
+    }
+
+
+example: 
+
+  <AbstractButton
                 btnStyle="Icon_Only"
                 btnText="Facebook"
                 backgrClr="orange"
@@ -88,14 +89,11 @@ example: Normal Btn Compo
                 btnTextColor="blue"
                 iconColor={"red"}
                 btnTextSize={24}
-                btnBorderRadius={10}
                 btnHeight={40}
                 btnWidth={"60%"}
                 btnborderWidth={0}
                 btnOpacity={0.8}
-                iconSize={25}
-                iconLibraryName={"Ionicons"}
-                iconName={"call"}
+                btnIcon={()=><IconCompo name={"call"} size={25} color={"white"} />}
                 BtnPress={() => console.log("hamza")}
             />
 
@@ -111,6 +109,8 @@ Styling:
 txtInpuStyle  "string"
 1. Text_Only
 2. Text_and_Icon
+3. Password_TextInput
+4. Password_TextInput_and_Icon
 txtInpuStyle="Text_Only"
 
 
@@ -138,26 +138,9 @@ txtInHeight "number" or "percentage"
 => textInput PlaceHolderTextColor :
  txtInPlaceHolderTextcolor "string"\
 
-=> Icon Color:
-iconColor "string"
-iconColor="red"
-
-=> Icon Name:
-iconName "string"
-iconName="name of Icon with respect to library"
-
-=> Icon Size:
-iconSize "number"
-iconSize={10}
-
-=> Icons Supported Libraries
-Entypo
-FontAwesome
-MaterialCommunityIcons
-MaterialIcons
-Ionicons
-iconLibraryName "string"
-iconLibraryName="Entypo"
+=> PasswordtextInput IconColor :
+ psdtxtInIconColor "string"
+ psdtxtInIconColor={"yellow"}
 
 
  functionality:
@@ -169,10 +152,21 @@ iconLibraryName="Entypo"
  prop: setStateFunc ""setStateFunc={(txt)=>stateSetFunctionHere(txt)}
  setStateFunc={(txt)=>setInput(txt)}
 
+ import Ionicons from 'react-native-vector-icons/Ionicons';
+
+
+ const IconCompo = ({name,size,color}) => {
+        return (
+            <Ionicons name={name} size={size} color={color}  />
+        )
+    }
+
+
+
 example :
 
     <TextInputCompo
-                txtInpuStyle="Text_and_Icon"
+                txtInpuType="Text_and_Icon"
                 statevalue={input}
                 setStateFunc={(txt) => setInput(txt)}
                 txtInHeight={"10%"}
@@ -182,257 +176,11 @@ example :
                 txtInTextColor={"orange"}
                 txtInplacholdertext={"username"}
                 txtInPlaceHolderTextcolor={"white"}
-                iconSize={25}
-                iconLibraryName={"Ionicons"}
-                iconName={"call"}
-                iconColor={"black"}
+              
 
             />
 
 
 
-1. Password TextInput:
 
-Styling:
 
-=> PasswordTextInput Style: 
-psdtxtInpuStyle  "string"
-1. Text_Only
-2. Text_and_Icon
-psdtxtInpuStyle="Text_Only"
-
-
-=> PasswordtextInput BackgroundColor: 
-psdtxtInBackgroundColor  "string"
-psdtxtInBackgroundColor={"red"}
-
-=> PasswordtextInput Height :
-psdtxtInHeight "number" or "percentage"
-psdtxtInHeight={50}
-
-=> PasswordtextInput Width :
- psdtxtInWidth "number" or "percentage"
- psdtxtInWidth={"80%"}
-
-=> PasswordtextInput BorderRadius :
- psdtxtInBorderRadius "number"
- psdtxtInBorderRadius={0}
-
-=> textInputTextColor :
- psdtxtInTextColor "string"
- psdtxtInTextColor={"black"}
-
-=> PasswordtextInput PlaceHolderTextColor :
- psdtxtInPlaceHolderTextcolor "string"
- psdtxtInPlaceHolderTextcolor={"black"}
-
-=> PasswordtextInput IconColor :
- psdtxtInIconColor "string"
- psdtxtInIconColor={"yellow"}
-
-=> Icon Color:
-iconColor "string"
-iconColor="red"
-
-=> Icon Name:
-iconName "string"
-iconName="name of Icon with respect to library"
-
-=> Icon Size:
-iconSize "number"
-iconSize={10}
-
-=> Icons Supported Libraries
-Entypo
-FontAwesome
-MaterialCommunityIcons
-MaterialIcons
-Ionicons
-iconLibraryName "string"
-iconLibraryName="Entypo"
-
-
- functionality:
- 1. State for Value
- prop: statevalue "state name to be use for textinput value"
-
- 2. SetState Function
- prop: setStateFunc ""setStateFunc={(txt)=>stateSetFunctionHere(txt)}
-
-
-example :
-
-     <PasswordTextInputCompo
-                psdtxtInpuStyle={"Text_and_Icon"}
-                psdtxtInBackgroundColor={"red"}
-                psdtxtInHeight={50}
-                psdtxtInWidth={"80%"}
-                psdtxtInBorderRadius={0}
-                psdtxtInTextColor={"black"}
-                psdtxtInPlaceHolderTextcolor={"black"}
-                psdtxtInIconColor={"yellow"}
-                statevalue={input}
-                setStateFunc={(txt) => setInput(txt)}
-                iconSize={25}
-                iconLibraryName={"Ionicons"}
-                iconName={"call"}
-                iconColor={"black"}
-            />
-
-
-
-4. Button with Image
-
-
-=> button BackgroundColor: 
-backgrClr  "string"
-backgrClr="orange"
-
-=> button Height :
- btnHeight "number" or "percentage"
- btnHeight={"10%"}
-
-=> button Width :
- btnWidth "number" or "percentage"
- btnWidth={"90%"}
-
-=> button BorderRadius :
- btnBorderRadius "number"
- btnBorderRadius={0}
-
-=> Button borderWidth:
-btnborderWidth "number"
-btnborderWidth={1}
-
-=> Button borderColor:
-btnborderColor "string"
-btnborderColor="red"
-
-=> Button Opacity:
-btnOpacity 0 to 1  
-btnOpacity={0.8}
-
-=> Image Url:
-imageUrl={image1} 
-
-=> Image Height :
-imgHeight={"70%"}
-
-=> Image Width :
-imgWidth={"70%"}
-
-
-functionality:
-BtnPress "call-back funcition"
-BtnPress={()=>console.log("hamza")}
-
-
-
-
-example:
-
-<ButtonWithImageCompo
-               backgrClr="orange"
-               btnBorderRadius={10}
-               btnHeight={150}
-               btnWidth={"60%"}
-               btnborderWidth={0}
-               btnborderColor="blue"
-               btnOpacity={0.8}
-               imageUrl={image1}
-               imgWidth={"70%"}
-               imgHeight={"70%"}
-               BtnPress={() => console.log("hamza")}
-            />
-
-
-
-
-
-instagram Buttom
-
-
-=> button BackgroundColor: 
-backgrClr  "string"
-backgrClr="orange"
-
-=> button Height :
- btnHeight "number" or "percentage"
- btnHeight={"10%"}
-
-=> button Width :
- btnWidth "number" or "percentage"
- btnWidth={"90%"}
-
-=> button BorderRadius :
- btnBorderRadius "number"
- btnBorderRadius={0}
-
-=> button text :
- btnText "string"
- btnText="name"
-
-=> button textSize :
- btnTextSize "number" 
- btnTextSize={18}
-
-=> button textColor :
- btnTextColor "number" 
- btnTextColor="blue"
-
-
-=> Button borderWidth:
-btnborderWidth "number"
-btnborderWidth={1}
-
-=> Button borderColor:
-btnborderColor "string"
-btnborderColor="red"
-
-=> Button Opacity:
-btnOpacity 0 to 1  
-btnOpacity={0.8}
-
-
-=> Icon Color:
-iconColor "string"
-iconColor="red"
-
-=> Icon Name:
-iconName "string"
-iconName="name of Icon with respect to library"
-
-=> Icon Size:
-iconSize "number"
-iconSize={10}
-
-=> Icons Supported Libraries
-Entypo
-FontAwesome
-MaterialCommunityIcons
-MaterialIcons
-Ionicons
-iconLibraryName "string"
-iconLibraryName="Entypo"
-
-functionality:
-BtnPress "call-back funcition"
-BtnPress={()=>console.log("hamza")}
-
-<InstagramButtonCompo
- backgrClr="orange"
- btnBorderRadius={10}
- btnHeight={150}
- btnWidth={"30%"}
- btnborderWidth={0}
- btnborderColor="blue"
- btnOpacity={0.8}
- iconSize={50}
- iconLibraryName={"Ionicons"}
- iconName={"call"}
- iconColor={"white"}
- btnTextColor="white"
- btnTextSize={16}
- btnText="Facebook"
- BtnPress={() => console.log("hamza")}
-/>

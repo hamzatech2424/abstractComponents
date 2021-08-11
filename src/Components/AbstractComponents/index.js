@@ -1,14 +1,9 @@
-import NormalButton from "./NormalButton";
-import TextInputCompo from "./TextInput";
-import PasswordTextInputCompo from "./PasswordTextInput";
-import ButtonWithImageCompo from "./ButtonWithImage";
-import InstagramButtonCompo from "./InstagramButton"
+import AbstractButton from "./AbstractButton";
+import AbstractTextInput from "./AbstractTextInput";
 
 
 export {
-    NormalButton,
-    TextInputCompo,
-    PasswordTextInputCompo,
-    ButtonWithImageCompo,
-    InstagramButtonCompo
+    AbstractButton,
+    AbstractTextInput,
+  
 }
